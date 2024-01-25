@@ -3,14 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject pauseMenuCanvas;
+	private Button _resumeButton;
+	private Button _reloadButton;
+	private Button _quitToMenu;
+	private Button _quitToDesktop;
 	private bool _isPaused;
+
 
 	private void Start()
 	{
+		Time.timeScale = 1;
 		pauseMenuCanvas.SetActive(false);
 	}
 
@@ -22,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 		}
 	}
 
-	private void TogglePause()
+	public void TogglePause()
 	{
 		_isPaused = !_isPaused;
 		if (_isPaused)
@@ -36,5 +43,15 @@ public class PauseMenu : MonoBehaviour
 			Time.timeScale = 1;
 			pauseMenuCanvas.SetActive(false);
 		}
+	}
+
+	public void LoadLevel(int idx)
+	{
+		SceneManager.LoadSceneAsync(idx);
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
 	}
 }
