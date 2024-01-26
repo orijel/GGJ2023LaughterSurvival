@@ -1,16 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
 
-    public float enemyHealth = 100f;
+    public float EnemyHealth = 100;
 
-    public void OnDamageTaken(WeaponBase weapon)
+    public virtual void OnDamageTaken(WeaponBase weapon)
     {
         Debug.Log($"Taking damage from: {weapon.name}");
+        if ( EnemyHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    protected virtual void Die()
+    {
+        throw new NotImplementedException();
     }
 
     public void onAttack()
