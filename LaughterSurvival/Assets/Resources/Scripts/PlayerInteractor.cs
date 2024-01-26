@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour
 {
     // Start is called before the first frame update
-    private List<Interactble> _interactbles = new List<Interactble>();
+    private List<Interactable> _interactbles = new List<Interactable>();
 
     private void OnTriggerEnter(Collider other)
     {
-        Interactble interactable = other.GetComponent<Interactble>();
+        Interactable interactable = other.GetComponent<Interactable>();
         if (interactable != null)
         {
             _interactbles.Add(interactable);
@@ -19,7 +19,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Interactble interactable = other.GetComponent<Interactble>();
+        Interactable interactable = other.GetComponent<Interactable>();
         if (interactable != null)
         {
             _interactbles.Remove(interactable);
@@ -32,15 +32,5 @@ public class PlayerInteractor : MonoBehaviour
         {
             interactable.Invoke();
         }
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
