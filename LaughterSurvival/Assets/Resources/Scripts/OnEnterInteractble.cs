@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnEnterInteractble : MonoBehaviour
+public class OnEnterInteractble : Interactble
 {
     //[SerializeField] public Color collisionColor; // Set the color you want on collision
     [SerializeField] public UnityEvent onCollision;
