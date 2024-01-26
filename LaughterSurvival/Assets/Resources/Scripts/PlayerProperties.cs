@@ -25,18 +25,21 @@ public class PlayerProperties : MonoBehaviour
         //TODO
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        other.GetComponentInParent<EnemyBase>().onAttack();
-
-        if (playerDamageable)
+        EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
+        if (enemy != null)
         {
-            other.GetComponentInParent<EnemyBase>().onAttackSuccess();
-            if (other.gameObject.transform.parent.name == "Zombie")
+            enemy.onAttack();
+            if (playerDamageable)
             {
-                StartCoroutine(DisableMovementForSeconds(1f));
-                StartCoroutine(PlayerInvincibleForSeconds(2f));
-
+                enemy.onAttackSuccess();
+                if (enemy.transform.name == "Zombie")
+                {
+                    StartCoroutine(DisableMovementForSeconds(1f));
+                    StartCoroutine(PlayerInvincibleForSeconds(2f));
+                }
             }
         }
     }

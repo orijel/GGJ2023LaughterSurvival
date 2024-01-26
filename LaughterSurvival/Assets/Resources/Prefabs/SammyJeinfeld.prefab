@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 8055321001439526995}
   - component: {fileID: 8055321001439526992}
   - component: {fileID: 8055321001439526993}
+  - component: {fileID: 57422880339433220}
   m_Layer: 0
   m_Name: SammyJeinfeld
   m_TagString: Player
@@ -255,6 +256,20 @@ MonoBehaviour:
   Controller: {fileID: 8055321001439526995}
   PlayerActions: {fileID: 8055321001439526992}
   WeaponsManager: {fileID: 8055321002628147072}
+--- !u!114 &57422880339433220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055321001439527022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1058a9d6d00fa744b9ba22500bdcb39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  playerDamageable: 1
 --- !u!1 &8055321002233883095
 GameObject:
   m_ObjectHideFlags: 0
