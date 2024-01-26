@@ -33,4 +33,9 @@ public class Zombie : EnemyBase
     {
 
     }
+
+    new void OnDamageTaken(WeaponBase weapon)
+    {
+        base.OnDamageTaken(weapon);
+    }
 }

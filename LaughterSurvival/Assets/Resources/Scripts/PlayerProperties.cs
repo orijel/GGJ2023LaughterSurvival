@@ -17,7 +17,10 @@ public class PlayerProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerHealth <= 0)
+        {
+            PlayerDeath();
+        }
     }
 
     void PlayerDeath()
@@ -35,10 +38,13 @@ public class PlayerProperties : MonoBehaviour
             if (playerDamageable)
             {
                 enemy.onAttackSuccess();
+
+                // IF THE ATTACK IS A ZOMBIE:
                 if (enemy.transform.name == "Zombie")
                 {
                     StartCoroutine(DisableMovementForSeconds(1f));
                     StartCoroutine(PlayerInvincibleForSeconds(2f));
+                    playerHealth -= 10f;
                 }
             }
         }

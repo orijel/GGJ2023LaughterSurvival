@@ -6,9 +6,10 @@ using UnityEngine.AI;
 public abstract class EnemyBase : MonoBehaviour
 {
 
+    public float enemyHealth = 100f;
+
     public void OnDamageTaken(WeaponBase weapon)
     {
-        // TODO: implement this
         Debug.Log($"Taking damage from: {weapon.name}");
     }
 
