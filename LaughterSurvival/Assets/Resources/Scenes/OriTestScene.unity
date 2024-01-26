@@ -482,6 +482,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2343493392421277870, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343493392421277870, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343493392421277870, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 878525361}
+    - target: {fileID: 2343493392421277870, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343493392421277870, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FartGun, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8055321001439526996, guid: d85930bc018faf64dac78a457f2f7203,
         type: 3}
       propertyPath: m_RootOrder
@@ -544,6 +569,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85930bc018faf64dac78a457f2f7203, type: 3}
+--- !u!1 &878525361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8055321002997698711, guid: d85930bc018faf64dac78a457f2f7203,
+    type: 3}
+  m_PrefabInstance: {fileID: 450144126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175841021
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public abstract class WeaponBase : MonoBehaviour
     public string WeaponId { get => _weaponId; }
     public bool IsContinous { get => _isContinous; }
     public float AttackResetDelay { get => _attackResetDelay; }
+    public bool IsAttacking { get => _isAttacking; }
 
     private void Start()
     {
