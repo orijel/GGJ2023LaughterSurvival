@@ -5,34 +5,44 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] List<Transform> transforms;
-    [SerializeField] GameObject objectTospawn;
-
+    [SerializeField] ObjectPool objectPool;
     private System.Random _random = new System.Random();
-
+    private float _timer = 0;
+    private float _interval = 3;
+    private int _spawnCounter = 0;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
-        // Create an instance of the Random class
+        // Accumulate time
+        _timer += Time.fixedDeltaTime;
 
-        // Generate a random number between 0 (inclusive) and 11 (exclusive)
-        int spawnIndex = _random.Next(0, transforms.Count);
-        Spawn(spawnIndex);
+        // Check if 10 seconds have passed
+        if (_spawnCounter < objectPool.pool.Length && _timer >= _interval)
+        {
+            _spawnCounter++;
+            // Reset the timer
+            _timer = 0;
+            // Create an instance of the Random class
+
+            // Generate a random number between 0 (inclusive) and 11 (exclusive)
+            int spawnIndex = _random.Next(0, transforms.Count);
+
+            Spawn(spawnIndex);
+        }
     }
 
     void Spawn(int spawnIndex)
     {
-        Instantiate(objectTospawn, transforms[spawnIndex]);
+        foreach (var obj in objectPool.pool) { 
+            if(obj.activeInHierarchy == false)
+            {
+                obj.SetActive(true);
+                obj.transform.position = transforms[spawnIndex].position;
+                return;
+            }
+        }
+        //Instantiate(objectPool.pool[0], transforms[spawnIndex]);
     }
 
 

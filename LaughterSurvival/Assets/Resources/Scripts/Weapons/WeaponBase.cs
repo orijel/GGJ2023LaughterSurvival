@@ -8,12 +8,13 @@ public abstract class WeaponBase : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private string _weaponId;
-    [SerializeField] private float _damage;
     [SerializeField] private DamageType _damageType;
     [SerializeField] private UnityEvent _onAttack;
     [SerializeField] private UnityEvent _onStopAttack;
     [SerializeField] private bool _isContinous = false;
     [SerializeField] private float _attackResetDelay = 1.5f;
+
+    [SerializeField] public float Damage;
 
     [Header("References")]
     [SerializeField] private Collider _Collider;
