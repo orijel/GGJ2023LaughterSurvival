@@ -7,20 +7,22 @@ public class Spawner : MonoBehaviour
     [SerializeField] List<Transform> transforms;
     [SerializeField] ObjectPool objectPool;
     private System.Random _random = new System.Random();
-    private float timer = 0;
-    private float interval = 10;
+    private float _timer = 0;
+    private float _interval = 3;
+    private int _spawnCounter = 0;
     // Start is called before the first frame update
 
     private void FixedUpdate()
     {
         // Accumulate time
-        timer += Time.fixedDeltaTime;
+        _timer += Time.fixedDeltaTime;
 
         // Check if 10 seconds have passed
-        if (timer >= interval)
+        if (_spawnCounter < objectPool.pool.Length && _timer >= _interval)
         {
+            _spawnCounter++;
             // Reset the timer
-            timer = 0;
+            _timer = 0;
             // Create an instance of the Random class
 
             // Generate a random number between 0 (inclusive) and 11 (exclusive)

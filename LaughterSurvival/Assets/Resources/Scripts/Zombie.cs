@@ -34,8 +34,16 @@ public class Zombie : EnemyBase
 
     }
 
-    new void OnDamageTaken(WeaponBase weapon)
+    public override void OnDamageTaken(WeaponBase weapon)
     {
+        if (weapon is FartGun fartGun) {
+            EnemyHealth -= fartGun.Damage;
+        }
         base.OnDamageTaken(weapon);
+    }
+
+    protected override void Die()
+    {
+        gameObject.SetActive(false);
     }
 }
