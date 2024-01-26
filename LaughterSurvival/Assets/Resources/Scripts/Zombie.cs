@@ -39,6 +39,11 @@ public class Zombie : EnemyBase
         if (weapon is FartGun fartGun) {
             EnemyHealth -= fartGun.Damage;
         }
+
+        if (weapon is BaseGun baseGun)
+        {
+            EnemyHealth -= baseGun.Damage;
+        }
         base.OnDamageTaken(weapon);
     }
 

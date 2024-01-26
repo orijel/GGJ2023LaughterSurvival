@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 8055321002681634397}
   m_Layer: 0
   m_Name: PlayerInteractor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponId: FartGun
-  _damage: 5
   _damageType: 0
   _onAttack:
     m_PersistentCalls:
@@ -660,6 +659,7 @@ MonoBehaviour:
         m_CallState: 2
   _isContinous: 1
   _attackResetDelay: 1.5
+  Damage: 0
   _Collider: {fileID: 4624891196385199799}
   _mainGameObject: {fileID: 8055321002997698711}
   _attackTick: 0.3

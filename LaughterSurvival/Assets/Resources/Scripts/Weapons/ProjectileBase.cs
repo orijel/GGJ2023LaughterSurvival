@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class ProjectileBase : MonoBehaviour
 {
-	[SerializeField] private Rigidbody myRb;
+	[SerializeField] public WeaponBase myWeapon;
+	public ObjectPool myPool;
+	private float speed = 5f;
 	private float timeStamp;
 
 	private void OnEnable()
@@ -14,27 +17,43 @@ public class ProjectileBase : MonoBehaviour
 		timeStamp = Time.time;
 	}
 
-	private void OnCollisionEnter(Collision other)
+	private void OnTriggerEnter(Collider other)
 	{
 		//TODO: get enemy base and deal damage
-		if (!other.gameObject.CompareTag("Player"))
+		Debug.Log("(Trigger)EMOTIONAL DAMAGE!! :" + other.gameObject.name);
+		if (other.gameObject.CompareTag("Player")) return;
+		EnemyBase enemy = other.gameObject.GetComponent<EnemyBase>();
+		if (enemy != null)
 		{
-			Debug.Log("EMOTIONAL DAMAGE!! :" + other.gameObject.name);
-			ResetProjectile();
+			enemy.OnDamageTaken(myWeapon);
 		}
+
+		ResetProjectile();
+	}
+	//
+	// private void OnCollisionEnter(Collision other)
+	// {
+	// 	//TODO: get enemy base and deal damage
+	// 	if (other.gameObject.CompareTag("Player")) return;
+	// 	Debug.Log("EMOTIONAL DAMAGE!! :" + other.gameObject.name);
+	// 	Zombie enemy = other.gameObject.GetComponent<Zombie>();
+	// 	if (enemy != null)
+	// 	{
+	// 		enemy.OnDamageTaken(20);
+	// 	}
+	//
+	// 	ResetProjectile();
+	// }
+
+	private void Update()
+	{
+		transform.Translate(Vector3.forward * speed * Time.deltaTime);
 	}
 
-	// private void FixedUpdate()
-	// {
-	// 	if (timeStamp + 5f > Time.time)
-	// 	{
-	// 		ResetProjectile();
-	// 	}
-	// }
 
 	private void ResetProjectile()
 	{
 		gameObject.SetActive(false);
-		myRb.velocity = Vector3.zero;
+		transform.parent = myPool.transform;
 	}
 }
