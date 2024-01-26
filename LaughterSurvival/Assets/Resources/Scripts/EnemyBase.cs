@@ -8,7 +8,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void OnDamageTaken(WeaponBase weapon)
     {
-
+        // TODO: implement this
+        Debug.Log($"Taking damage from: {weapon.name}");
     }
 
     public void onAttack()
@@ -18,8 +19,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void onAttackSuccess()
     {
-        // TODO: implement this
-        //Debug.Log($"Taking damage from: {weapon.name}");
     }
 
     protected Vector3 GetTarget(string tag)
