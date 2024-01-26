@@ -6,31 +6,27 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private WeaponsManager weaponsManager;
-    [SerializeField] private float _AttackCooldown = 1.5f;
-
-    private bool _isShooting = false;
-
+    [SerializeField] private PlayerInteractor PlayerInteractor;
     public void Attack()
     {
-        if (_isShooting)
+        var activeWeapon = weaponsManager.ActiveWeapon;
+        if (activeWeapon == null)
         {
             return;
         }
 
-        _isShooting = true;
-        weaponsManager.ActiveWeapon?.Attack();
-        this.ActivateWithDelay(OnShootFinished, _AttackCooldown);
+        activeWeapon.Attack();
     }
 
-    private void OnShootFinished()
+    private void StopAttack()
     {
-        _isShooting = false;
-    }
+        var activeWeapon = weaponsManager.ActiveWeapon;
+        if (activeWeapon == null)
+        {
+            return;
+        }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        activeWeapon.StopAttack();
     }
 
     // Update is called once per frame
@@ -38,14 +34,16 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            Debug.Log("got V down");
             Attack();
         }
 
-        // TODO: delete this code after checking gun
-        if (Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyUp(KeyCode.V))
         {
-            weaponsManager.ActivateWeapon("FartGun");
+            StopAttack();
+        }        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerInteractor.Interact();
         }
     }
 }
