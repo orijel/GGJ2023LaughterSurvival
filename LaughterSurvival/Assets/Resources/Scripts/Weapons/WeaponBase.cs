@@ -61,7 +61,7 @@ public abstract class WeaponBase : MonoBehaviour
         {
             return;
         }
-        this.ActivateWithDelay(() => { }, AttackResetDelay);
+        this.ActivateWithDelay(ResetAttack, AttackResetDelay);
     }
 
     public void StopAttack()
