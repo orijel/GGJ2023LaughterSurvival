@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FartGun : WeaponBase
@@ -57,6 +58,9 @@ public class FartGun : WeaponBase
             Debug.Log("actually damaging enemy");
             HitEnemey(enemy);
         }
+        _enemeiesInRange = _enemeiesInRange.Where(x => x.EnemyHealth > 0).ToList();
         _attackCoroutine = this.ActivateWithDelay(TryDamageEnemy, _attackTick);
     }
+
+
 }
