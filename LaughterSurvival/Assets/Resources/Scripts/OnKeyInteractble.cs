@@ -6,26 +6,12 @@ using UnityEngine.Events;
 
 public class OnKeyInteractble : Interactble
 {
-    [SerializeField] public UnityEvent onCollision;
     [SerializeField] public KeyCode onKey;
     
     private bool _inCollision = false;
 
     public Collider colliderToAdd  = new BoxCollider();
 
-    void Awake()
-    {
-        // Check if the GameObject doesn't have a collider attached
-        if (GetComponent<Collider>() == null)
-        {
-            // Instantiate and add the desired collider component
-            BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
-            boxCollider.isTrigger = true;
-            // You might want to set the properties of the collider here (size, etc.) if needed
-
-            Debug.Log("Collider added!");
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {  
         _inCollision = true;
