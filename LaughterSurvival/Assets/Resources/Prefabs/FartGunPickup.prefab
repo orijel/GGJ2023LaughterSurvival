@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 6445471518057427274, guid: 8272b98945a404342bf872ef090415be,
         type: 3}
       propertyPath: m_Name
-      value: Interactible
+      value: FartGunPickup
       objectReference: {fileID: 0}
     - target: {fileID: 6445471518057427279, guid: 8272b98945a404342bf872ef090415be,
         type: 3}
@@ -264,3 +264,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 2117608002713700562}
+  weaponId: FartGun

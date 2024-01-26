@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4535768494772363173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1419633868, guid: ceea551ac048f604b88f76bc6150d049, type: 3}
+      propertyPath: weaponId
+      value: insultGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3785646
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9992607
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700560, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117608002713700562, guid: ceea551ac048f604b88f76bc6150d049,
+        type: 3}
+      propertyPath: m_Name
+      value: InsultGunPickup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ceea551ac048f604b88f76bc6150d049, type: 3}
