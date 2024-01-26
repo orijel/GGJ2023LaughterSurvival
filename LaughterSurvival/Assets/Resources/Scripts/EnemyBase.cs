@@ -12,7 +12,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void OnDamageTaken(WeaponBase weapon)
     {
-        Debug.Log($"Taking damage from: {weapon.name}");
+        Debug.Log($"Taking damage from: {weapon.name}, Health {EnemyHealth}");
         if ( EnemyHealth <= 0)
         {
             Die();
