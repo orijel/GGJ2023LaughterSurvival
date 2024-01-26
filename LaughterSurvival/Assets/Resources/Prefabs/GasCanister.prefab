@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1759048070496155196}
   - component: {fileID: 3442649466867120537}
   - component: {fileID: 586110319028178259}
+  - component: {fileID: 8753285412681812554}
   m_Layer: 0
   m_Name: GasCanister
   m_TagString: Untagged
@@ -84,3 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8753285412681812554
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378862669648505990}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.03, y: 0.005, z: 0.03}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.012, y: 0, z: -0.018000001}
+  m_TimeToStationary: 0.5

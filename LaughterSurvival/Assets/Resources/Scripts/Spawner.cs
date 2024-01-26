@@ -6,9 +6,10 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] List<Transform> transforms;
     [SerializeField] ObjectPool objectPool;
+    [SerializeField] private float interval = 3;
+
     private System.Random _random = new System.Random();
     private float _timer = 0;
-    private float _interval = 3;
     private int _spawnCounter = 0;
     // Start is called before the first frame update
 
@@ -18,7 +19,7 @@ public class Spawner : MonoBehaviour
         _timer += Time.fixedDeltaTime;
 
         // Check if 10 seconds have passed
-        if (_spawnCounter < objectPool.pool.Length && _timer >= _interval)
+        if (_spawnCounter < objectPool.pool.Length && _timer >= interval)
         {
             _spawnCounter++;
             // Reset the timer
