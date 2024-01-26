@@ -19,7 +19,7 @@ public class FartGun : WeaponBase
         _vfx.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
-    public void DamageEnemy(Collider other)
+    public void DamageEnemyByCollider(Collider other)
     {
         TryDamageEnemy(other.gameObject);
     }
