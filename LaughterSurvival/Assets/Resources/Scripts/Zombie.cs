@@ -24,4 +24,13 @@ public class Zombie : EnemyBase
         navMeshAgent.destination = GetTarget("Player");
     }
 
+    void OnAttack()
+    {
+
+    }
+
+    void OnAttackSuccess()
+    {
+
+    }
 }

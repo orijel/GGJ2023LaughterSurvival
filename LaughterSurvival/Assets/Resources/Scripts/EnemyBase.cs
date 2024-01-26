@@ -6,7 +6,17 @@ using UnityEngine.AI;
 public abstract class EnemyBase : MonoBehaviour
 {
 
-    public void OnHit(WeaponBase weapon)
+    public void OnDamageTaken(WeaponBase weapon)
+    {
+
+    }
+
+    public void onAttack()
+    {
+
+    }
+
+    public void onAttackSuccess()
     {
         // TODO: implement this
         Debug.Log($"Taking damage from: {weapon.name}");

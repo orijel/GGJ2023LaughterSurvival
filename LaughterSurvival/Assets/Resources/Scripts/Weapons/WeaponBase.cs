@@ -43,7 +43,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     public void HitEnemey(EnemyBase enemy)
     {
-        enemy.OnHit(this);
+        enemy.OnDamageTaken(this);
     }
 
     public void Attack()
