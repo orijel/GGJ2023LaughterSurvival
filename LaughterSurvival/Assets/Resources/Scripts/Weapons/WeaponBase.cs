@@ -11,12 +11,19 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private DamageType _damageType;
     [SerializeField] private UnityEvent _onAttack;
+    [SerializeField] private UnityEvent _onStopAttack;
+    [SerializeField] private bool _isContinous = false;
+    [SerializeField] private float _attackResetDelay = 1.5f;
 
     [Header("References")]
     [SerializeField] private Collider _Collider;
     [SerializeField] private GameObject _mainGameObject;
 
+    private bool _isAttacking = false;
+
     public string WeaponId { get => _weaponId; }
+    public bool IsContinous { get => _isContinous; }
+    public float AttackResetDelay { get => _attackResetDelay; }
 
     private void Start()
     {
@@ -41,7 +48,27 @@ public abstract class WeaponBase : MonoBehaviour
 
     public void Attack()
     {
+        if (_isAttacking)
+        {
+            return;
+        }
+
+        _isAttacking = true;
+        ActivateTrigger();
         _onAttack.Invoke();
+
+        if (IsContinous)
+        {
+            return;
+        }
+        this.ActivateWithDelay(() => { }, AttackResetDelay);
+    }
+
+    public void StopAttack()
+    {
+        DeactivateTrigger();
+        _isAttacking = false;
+        _onStopAttack.Invoke();
     }
 
     public void ActivateTrigger()
@@ -53,4 +80,10 @@ public abstract class WeaponBase : MonoBehaviour
     {
         _Collider.enabled = false;
     }
+
+    private void ResetAttack()
+    {
+        _isAttacking = false;
+    }
+
 }
