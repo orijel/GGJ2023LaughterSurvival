@@ -40,14 +40,7 @@ public class PlayerActions : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.V))
         {
             StopAttack();
-        }
-
-        // TODO: delete this code after checking gun
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            weaponsManager.ActivateWeapon("FartGun");
-        }
-
+        }        
         if (Input.GetKeyDown(KeyCode.F))
         {
             PlayerInteractor.Interact();
