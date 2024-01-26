@@ -33,7 +33,7 @@ public class BanterPopup : MonoBehaviour
 		banterTMP.text = GetRandomInsult();
 		playTween.Play();
 	}
-
+	
 	private void OnCollisionEnter(Collision other)
 	{
 		if (!other.gameObject.CompareTag("Player"))
