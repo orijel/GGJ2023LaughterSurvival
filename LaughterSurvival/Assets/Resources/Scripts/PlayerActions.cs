@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private WeaponsManager weaponsManager;
-
+    [SerializeField] private PlayerInteractor PlayerInteractor;
     public void Attack()
     {
         var activeWeapon = weaponsManager.ActiveWeapon;
@@ -46,6 +46,11 @@ public class PlayerActions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             weaponsManager.ActivateWeapon("FartGun");
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerInteractor.Interact();
         }
     }
 }
