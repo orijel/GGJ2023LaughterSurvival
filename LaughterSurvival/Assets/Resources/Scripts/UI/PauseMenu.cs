@@ -9,6 +9,7 @@ using BLINK.Controller;
 public class PauseMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject pauseMenuCanvas;
+	[SerializeField] private GameObject bug;
 	private Button _resumeButton;
 	private Button _reloadButton;
 	private Button _quitToMenu;
@@ -40,7 +41,7 @@ public class PauseMenu : MonoBehaviour
 			pauseMenuCanvas.SetActive(true);
 			if (_controller.IsFloating())
 			{
-				Debug.Log("It's not a BUG, it's a FEATURE");
+				bug.SetActive(true);
 			}
 
         }
@@ -49,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			pauseMenuCanvas.SetActive(false);
+			bug.SetActive(false);
 		}
 	}
 

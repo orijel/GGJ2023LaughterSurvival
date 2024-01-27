@@ -378,7 +378,7 @@ namespace BLINK.Controller
         }
         public bool IsFloating()
         {
-            return _characterController.isGrounded && _isJumping;
+            return !_characterController.isGrounded && _isJumping;
         }
         private float GetGroundDistance()
         {
