@@ -62,18 +62,10 @@ public class EnemyBase : MonoBehaviour
         DisableAttack();
         if (EnemyHealth <= 0)
 		{
-			if (!_isDead) {
-				_isDead = true;
                 Die();
-            }
-			
 		}
 	}
 
-    private void OnEnable()
-    {
-        _isDead = false;
-    }
     protected virtual void Die()
 	{
         StopCoroutine(_disabledAttack);

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SetTransformAroundCollider : MonoBehaviour
 {
-    [SerializeField] private Camera _playerCamera;
     [SerializeField] private Vector3 _planeNormal;
     [SerializeField] private Vector3 _planePoint;
     [SerializeField] private Collider _collider;
@@ -20,7 +19,8 @@ public class SetTransformAroundCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray mouseRay = _playerCamera.ScreenPointToRay(Input.mousePosition);
+        Camera mainCamera = GlobalGameManager.Instance.MainCamera;
+        Ray mouseRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (_plane.Raycast(mouseRay, out var enter))
         {
             Vector3 pointOnPlane = mouseRay.GetPoint(enter);
