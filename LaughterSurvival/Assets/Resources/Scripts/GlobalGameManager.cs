@@ -3,7 +3,10 @@ using UnityEngine;
 public class GlobalGameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    private AudioSource audioSource;
+
+
+
     public static GlobalGameManager Instance { get; private set; }
     public PlayerRefrences Player { get; private set; }
     private void Awake()
@@ -15,5 +18,15 @@ public class GlobalGameManager : MonoBehaviour
         }
         Instance = this;
         Player = FindObjectOfType<PlayerRefrences>();
+
+    }
+
+    private void Start()
+    {
+
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.Play();
+
     }
 }
