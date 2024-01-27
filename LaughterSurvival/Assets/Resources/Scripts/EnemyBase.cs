@@ -71,7 +71,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        PlayRandomAudio();
+        PlayRandomAudio("Laughs");
 
         StopCoroutine(_disabledAttack);
         CanAttack = false;
@@ -92,6 +92,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void OnAttackSuccess()
     {
+        PlayRandomAudio("Documents");
         // TODO: implement this
         //Debug.Log($"Taking damage from: {weapon.name}");
     }
@@ -144,9 +145,9 @@ public class EnemyBase : MonoBehaviour
 
     }
 
-    void PlayRandomAudio()
+    protected void PlayRandomAudio(string which)
     {
-        AudioClip[] audioClips = Resources.LoadAll<AudioClip>("Sounds/SFX/Laughs");
+        AudioClip[] audioClips = Resources.LoadAll<AudioClip>("Sounds/SFX/"+which);
 
         if (audioClips.Length > 0)
         {

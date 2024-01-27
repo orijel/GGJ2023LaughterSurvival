@@ -32,6 +32,7 @@ public class Zombie : EnemyBase
     public override void OnAttackSuccess()
     {
         //Play animation
+        base.PlayRandomAudio("Documents");
         GameObject documentInstance = Instantiate(documents, transform.GetChild(0).transform);
         //documentInstance.transform.LookAt(Vector3.up);
         //documentInstance.transform.position += documentInstance.transform.forward;

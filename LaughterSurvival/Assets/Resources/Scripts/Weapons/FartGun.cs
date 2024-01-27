@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class FartGun : WeaponBase
 {
+
+    private AudioSource audioSource;
+
+
     private static int ShootAnimatorHash = Animator.StringToHash("Shoot");
 
     [SerializeField] private float _attackTick = 0.3f;
@@ -14,10 +18,16 @@ public class FartGun : WeaponBase
     private IList<EnemyBase> _enemeiesInRange = new List<EnemyBase>();
     private Coroutine _attackCoroutine;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void Shoot()
     {
         _animator.SetTrigger(ShootAnimatorHash);
         _attackCoroutine = this.ActivateWithDelay(TryDamageEnemy, _attackTick);
+
     }
 
     public void StopVfx()
@@ -53,6 +63,8 @@ public class FartGun : WeaponBase
 
     private void TryDamageEnemy()
     {
+        PlayRandomAudio("Farts");
+
         foreach (var enemy in _enemeiesInRange)
         {
             HitEnemey(enemy);
@@ -61,5 +73,24 @@ public class FartGun : WeaponBase
         _attackCoroutine = this.ActivateWithDelay(TryDamageEnemy, _attackTick);
     }
 
+    void PlayRandomAudio(string which)
+    {
+        AudioClip[] audioClips = Resources.LoadAll<AudioClip>("Sounds/SFX/"+which);
 
+        if (audioClips.Length > 0)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, audioClips.Length);
+            AudioClip randomClip = audioClips[randomIndex];
+
+            // Assign the randomly selected audio clip to the AudioSource component
+            audioSource.clip = randomClip;
+
+            // Play the assigned audio clip
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogError("No audio clips found in the specified folder: " + "Sounds/SFX/Laughs");
+        }
+    }
 }
