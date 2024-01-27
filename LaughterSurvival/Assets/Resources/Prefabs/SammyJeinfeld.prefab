@@ -1121,12 +1121,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1958575934803056518, guid: b89bd2cd2a600e044ba9ec324fb44689,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c660c3f8c07896a459d126a7f3235dfa, type: 2}
     - target: {fileID: 919132149155446097, guid: b89bd2cd2a600e044ba9ec324fb44689,
         type: 3}
       propertyPath: m_Name
       value: GravySeinfeld
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: b89bd2cd2a600e044ba9ec324fb44689, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b89bd2cd2a600e044ba9ec324fb44689, type: 3}
 --- !u!4 &6481055190070427627 stripped
 Transform:
