@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBase : MonoBehaviour
 {
 	[SerializeField] private float _maximumHealth = 100;
@@ -14,9 +15,21 @@ public class EnemyBase : MonoBehaviour
 	[SerializeField] private UnityEvent _onDeath;
 	[SerializeField] private UnityEvent _onHealthUpdated;
 
+    protected NavMeshAgent navMeshAgent;
+
     public float MaximumHealth { get => _maximumHealth; }
     public float EnemyHealth { get => _enemyHealth; }
     public float Damage { get => _damage; }
+
+    private void Awake()
+    {
+        InitializeNavMeshAgent();
+    }
+
+    void Update()
+    {
+        navMeshAgent.destination = GetTarget("Player");
+    }
 
     public virtual void OnDamageTaken(WeaponBase weapon)
 	{
@@ -62,14 +75,9 @@ public class EnemyBase : MonoBehaviour
 		return target.position;
 	}
 
-	protected NavMeshAgent InitializeNavMeshAgent()
+	protected void InitializeNavMeshAgent()
 	{
-		NavMeshAgent navMeshAgent;
-		navMeshAgent = this.GetComponent<NavMeshAgent>();
-		NavMeshHit hit;
-		NavMesh.SamplePosition(transform.position, out hit, 100, NavMesh.AllAreas);
-		navMeshAgent.Warp(hit.position);
-		return navMeshAgent;
+		navMeshAgent = GetComponent<NavMeshAgent>();
 	}
 
 	protected void SetHealth(float health)
