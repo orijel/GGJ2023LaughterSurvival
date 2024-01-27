@@ -32,6 +32,7 @@ public class EnemyBase : MonoBehaviour
 
     private Coroutine _disabledAttack;
 
+	private bool _isDead = false;
     private void Awake()
     {
         InitializeNavMeshAgent();
@@ -61,16 +62,25 @@ public class EnemyBase : MonoBehaviour
         DisableAttack();
         if (EnemyHealth <= 0)
 		{
-			Die();
+			if (!_isDead) {
+				_isDead = true;
+                Die();
+            }
+			
 		}
 	}
 
-	protected virtual void Die()
+    private void OnEnable()
+    {
+        _isDead = false;
+    }
+    protected virtual void Die()
 	{
         StopCoroutine(_disabledAttack);
 		CanAttack = false;
         _animator.Play(AnimatorDeathState);
 		_onDeath.Invoke();
+		GlobalGameManager.Instance.HudManager.AddKillCount();
 		this.ActivateWithDelay(DespawnObject, despawnDelay);
 	}
 

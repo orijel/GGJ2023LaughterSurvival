@@ -11,7 +11,7 @@ public class HudManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI killCount;
     private int _killCount = 0;
     [SerializeField] List<Spawner> spawners;
-
+    
     // Start is called before the first frame update
     void Start()
     {
