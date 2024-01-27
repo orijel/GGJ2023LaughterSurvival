@@ -38,6 +38,10 @@ public class ProjectileBase : MonoBehaviour
 	private void Update()
 	{
 		transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+		if (timeStamp + 10f < Time.time)
+		{
+			ResetProjectile();
+		}
 	}
 
 
@@ -46,4 +50,5 @@ public class ProjectileBase : MonoBehaviour
 		gameObject.SetActive(false);
 		transform.parent = myPool.transform;
 	}
+	
 }
