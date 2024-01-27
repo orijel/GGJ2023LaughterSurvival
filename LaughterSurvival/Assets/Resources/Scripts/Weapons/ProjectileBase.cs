@@ -8,8 +8,8 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
 	[SerializeField] public WeaponBase myWeapon;
+	[SerializeField] private float speed = 3f;
 	public ObjectPool myPool;
-	private float speed = 5f;
 	private float timeStamp;
 
 	private void OnEnable()
