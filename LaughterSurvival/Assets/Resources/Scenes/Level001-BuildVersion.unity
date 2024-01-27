@@ -672,18 +672,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 135311246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &145822608 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8055321002997698710, guid: d85930bc018faf64dac78a457f2f7203,
-    type: 3}
-  m_PrefabInstance: {fileID: 519417839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94025bf70f43b3e46bda9d973ecddc85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &147828874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4bc3112342754cc4bb36c81c43f9162a,
@@ -2224,16 +2212,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SammyJeinfeld
       objectReference: {fileID: 0}
-    - target: {fileID: 8055321002628147072, guid: d85930bc018faf64dac78a457f2f7203,
-        type: 3}
-      propertyPath: _weapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 2101729543}
-    - target: {fileID: 8055321002628147072, guid: d85930bc018faf64dac78a457f2f7203,
-        type: 3}
-      propertyPath: _weapons.Array.data[1]
-      value: 
-      objectReference: {fileID: 145822608}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85930bc018faf64dac78a457f2f7203, type: 3}
 --- !u!1 &522648001
@@ -3987,6 +3965,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fed74ca43164359468881506eb158fcb, type: 3}
+--- !u!1 &839651428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5287625018720931406, guid: d85930bc018faf64dac78a457f2f7203,
+    type: 3}
+  m_PrefabInstance: {fileID: 519417839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &853847936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10477,18 +10461,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092123341}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2101729543 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6142789662845410783, guid: d85930bc018faf64dac78a457f2f7203,
-    type: 3}
-  m_PrefabInstance: {fileID: 519417839}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e345cece8e9b143879e90fac0682b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2117047216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10496,6 +10468,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7250528727249033605, guid: 6fbdc12e7c8828c44a14ca96d3bab36c,
+        type: 3}
+      propertyPath: bug
+      value: 
+      objectReference: {fileID: 839651428}
     - target: {fileID: 974397466212372473, guid: 6fbdc12e7c8828c44a14ca96d3bab36c,
         type: 3}
       propertyPath: m_AnchorMax.y
