@@ -721,6 +721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieModel
       objectReference: {fileID: 0}
+    - target: {fileID: 5609421039873473434, guid: 324fa5576ebf25a4c80c31c63b41bacf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1811d93636500e542a465265bc9db7fc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 324fa5576ebf25a4c80c31c63b41bacf, type: 3}
 --- !u!1 &6216037745289176472 stripped
