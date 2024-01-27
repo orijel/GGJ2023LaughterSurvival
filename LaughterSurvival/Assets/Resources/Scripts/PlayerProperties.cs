@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerProperties : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerProperties : MonoBehaviour
     public float playerHealth = 100f;
     public bool playerDamageable = true;
     private bool movementEnabled;
+    [SerializeField] private UnityEvent onDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerProperties : MonoBehaviour
 
     void PlayerDeath()
     {
-        //TODO
+        onDeath.Invoke();
     }
 
 
@@ -40,11 +42,11 @@ public class PlayerProperties : MonoBehaviour
                 enemy.onAttackSuccess();
 
                 // IF THE ATTACK IS A ZOMBIE:
-                if (enemy.transform.name == "Zombie")
+                if (enemy.tag == "Enemy")
                 {
                     StartCoroutine(DisableMovementForSeconds(1f));
                     StartCoroutine(PlayerInvincibleForSeconds(2f));
-                    playerHealth -= 10f;
+                    playerHealth -= enemy.Damage;
                 }
             }
         }

@@ -7,9 +7,9 @@ using UnityEngine.AI;
 
 public class EnemyBase : MonoBehaviour
 {
-	public float EnemyHealth = 100;
-
-	public virtual void OnDamageTaken(WeaponBase weapon)
+    [SerializeField] public float EnemyHealth = 100;
+	[SerializeField] public float Damage = 10;
+    public virtual void OnDamageTaken(WeaponBase weapon)
 	{
 		Debug.Log($"Taking damage from: {weapon.name}, Health {EnemyHealth}");
 		if (EnemyHealth <= 0)
