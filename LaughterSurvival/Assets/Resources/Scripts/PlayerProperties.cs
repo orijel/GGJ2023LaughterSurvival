@@ -39,7 +39,7 @@ public class PlayerProperties : MonoBehaviour
             enemy.onAttack();
             if (playerDamageable)
             {
-                enemy.onAttackSuccess();
+                enemy.OnAttackSuccess();
 
                 // IF THE ATTACK IS A ZOMBIE:
                 if (enemy.tag == "Enemy")

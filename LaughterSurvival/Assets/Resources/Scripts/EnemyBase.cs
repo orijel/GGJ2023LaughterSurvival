@@ -48,7 +48,7 @@ public class EnemyBase : MonoBehaviour
 	{
 	}
 
-	public void onAttackSuccess()
+	public virtual void OnAttackSuccess()
 	{
 		// TODO: implement this
 		//Debug.Log($"Taking damage from: {weapon.name}");
