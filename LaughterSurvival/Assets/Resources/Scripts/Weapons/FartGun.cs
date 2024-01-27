@@ -27,6 +27,7 @@ public class FartGun : WeaponBase
 
     public void CancelAttack()
     {
+        _enemeiesInRange.Clear();
         StopCoroutine(_attackCoroutine);
     }
 
@@ -52,10 +53,8 @@ public class FartGun : WeaponBase
 
     private void TryDamageEnemy()
     {
-        Debug.Log("damaging enemy");
         foreach (var enemy in _enemeiesInRange)
         {
-            Debug.Log("actually damaging enemy");
             HitEnemey(enemy);
         }
         _enemeiesInRange = _enemeiesInRange.Where(x => x.EnemyHealth > 0).ToList();
