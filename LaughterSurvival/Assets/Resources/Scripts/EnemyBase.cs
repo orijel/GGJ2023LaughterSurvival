@@ -19,6 +19,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float _damage = 10;
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private UnityEvent _onHealthUpdated;
+    [SerializeField] private UnityEvent _onReset;
     [SerializeField] protected Animator _animator;
     [SerializeField] private float attackDisableTime = 1f;
     [SerializeField] private float despawnDelay = 2.4f;
@@ -31,9 +32,8 @@ public class EnemyBase : MonoBehaviour
     public bool CanAttack { get; private set; }
 
     private Coroutine _disabledAttack;
-
+	private bool _isDead = false;
     private AudioSource audioSource;
-
 
     private void Awake()
     {
@@ -70,13 +70,18 @@ public class EnemyBase : MonoBehaviour
     }
 
     protected virtual void Die()
-    {
+	{
+        if (_isDead)
+        {
+			return;
+        }
+		_isDead = true;
         PlayRandomAudio("Laughs");
-
         StopCoroutine(_disabledAttack);
         CanAttack = false;
         _animator.Play(AnimatorDeathState);
         _onDeath.Invoke();
+        GlobalGameManager.Instance.HudManager.AddKillCount();
         this.ActivateWithDelay(DespawnObject, despawnDelay);
     }
 
@@ -97,18 +102,25 @@ public class EnemyBase : MonoBehaviour
         //Debug.Log($"Taking damage from: {weapon.name}");
     }
 
-    protected Vector3 GetTarget(string tag)
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
-        float currentClosestDistance = float.PositiveInfinity;
-        GameObject currentClosest = this.gameObject;
-        foreach (GameObject target in targets)
-        {
-            if (Vector3.Distance(this.transform.position, target.transform.position) < currentClosestDistance)
-            {
-                currentClosest = target;
-            }
-        }
+	public virtual void ResetEnemy()
+	{
+		_isDead = false;
+        EnableAttack();
+        _onReset.Invoke();
+	}
+
+	protected Vector3 GetTarget(string tag)
+	{
+		GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+		float currentClosestDistance = float.PositiveInfinity;
+		GameObject currentClosest = this.gameObject;
+		foreach (GameObject target in targets)
+		{
+			if (Vector3.Distance(this.transform.position, target.transform.position) < currentClosestDistance)
+			{
+				currentClosest = target;
+			}
+		}
 
         return currentClosest.transform.position;
     }

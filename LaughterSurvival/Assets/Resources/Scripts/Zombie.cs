@@ -9,12 +9,6 @@ public class Zombie : EnemyBase
     [SerializeField] public int Damaage = 100;
     [SerializeField] private GameObject documents;
 
-    private void OnEnable()
-    {
-        _animator.applyRootMotion = false;
-        SetHealth(startHealth);
-    }
-
     public override void OnDamageTaken(WeaponBase weapon)
     {
         switch (weapon)
@@ -42,5 +36,12 @@ public class Zombie : EnemyBase
     public void UpdateAnimatorOnDeath()
     {
         _animator.applyRootMotion = true;
+    }
+
+    public override void ResetEnemy()
+    {
+        base.ResetEnemy();
+        _animator.applyRootMotion = false;
+        SetHealth(startHealth);
     }
 }
