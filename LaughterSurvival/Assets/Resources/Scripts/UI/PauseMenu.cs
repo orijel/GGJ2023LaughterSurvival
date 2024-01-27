@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using BLINK.Controller;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,12 +14,13 @@ public class PauseMenu : MonoBehaviour
 	private Button _quitToMenu;
 	private Button _quitToDesktop;
 	private bool _isPaused;
-
+	TopDownWASDController _controller;
 
 	private void Start()
 	{
 		Time.timeScale = 1;
 		pauseMenuCanvas.SetActive(false);
+		_controller = FindAnyObjectByType<TopDownWASDController>();
 	}
 
 	private void Update()
@@ -36,7 +38,12 @@ public class PauseMenu : MonoBehaviour
 		{
 			Time.timeScale = 0;
 			pauseMenuCanvas.SetActive(true);
-		}
+			if (_controller.IsFloating())
+			{
+				Debug.Log("It's not a BUG, it's a FEATURE");
+			}
+
+        }
 
 		if (!_isPaused)
 		{

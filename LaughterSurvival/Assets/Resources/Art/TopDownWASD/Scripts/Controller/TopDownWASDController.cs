@@ -376,7 +376,10 @@ namespace BLINK.Controller
 
             _characterController.Move(_displacement);
         }
-
+        public bool IsFloating()
+        {
+            return _characterController.isGrounded && _isJumping;
+        }
         private float GetGroundDistance()
         {
             if (Physics.Raycast (transform.position, -Vector3.up, out var hit)) {
