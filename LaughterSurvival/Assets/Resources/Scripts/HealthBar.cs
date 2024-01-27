@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
         _healthBarMask.transform.localScale = Vector3.one;
     }
 
-    public void TakeDamage()
+    public void SetHealth()
     {
         SetHealth(_enemyBase.EnemyHealth, _enemyBase.MaximumHealth);
     }

@@ -1686,12 +1686,15 @@ MonoBehaviour:
   _maximumHealth: 100
   _enemyHealth: 100
   _damage: 10
-  _onDamageTaken:
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealthUpdated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7627199478423779419}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: TakeDamage
+        m_MethodName: SetHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1701,9 +1704,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onDeath:
-    m_PersistentCalls:
-      m_Calls: []
   startHealth: 100
   Damaage: 100
 --- !u!136 &466032177658551163

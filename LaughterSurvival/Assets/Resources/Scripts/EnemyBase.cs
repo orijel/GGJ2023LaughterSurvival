@@ -11,8 +11,8 @@ public class EnemyBase : MonoBehaviour
 	[SerializeField] private float _maximumHealth = 100;
     [SerializeField] private float _enemyHealth = 100;
 	[SerializeField] private float _damage = 10;
-	[SerializeField] private UnityEvent _onDamageTaken;
 	[SerializeField] private UnityEvent _onDeath;
+	[SerializeField] private UnityEvent _onHealthUpdated;
 
     public float MaximumHealth { get => _maximumHealth; }
     public float EnemyHealth { get => _enemyHealth; }
@@ -20,7 +20,6 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void OnDamageTaken(WeaponBase weapon)
 	{
-		_onDamageTaken.Invoke();
 		if (EnemyHealth <= 0)
 		{
 			Die();
@@ -76,5 +75,7 @@ public class EnemyBase : MonoBehaviour
 	protected void SetHealth(float health)
 	{
 		_enemyHealth = health;
-	}
+		_onHealthUpdated.Invoke();
+
+    }
 }
