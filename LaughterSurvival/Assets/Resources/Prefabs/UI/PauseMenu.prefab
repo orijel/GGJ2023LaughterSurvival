@@ -476,6 +476,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReloadLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_text
+      value: Reload Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5640486741510368627, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -549,7 +559,7 @@ PrefabInstance:
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
@@ -636,6 +646,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuitToMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_text
+      value: Quit To Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5640486741510368627, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -709,7 +729,7 @@ PrefabInstance:
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
@@ -796,6 +816,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuitToDesktop
       objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_text
+      value: Quit To Desktop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5640486741510368627, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -869,7 +899,7 @@ PrefabInstance:
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7544320104440961773, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
@@ -955,6 +985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
+        type: 3}
+      propertyPath: m_text
+      value: Resume Game
       objectReference: {fileID: 0}
     - target: {fileID: 3799103845551654027, guid: 5056b596d565d9a459f17b0e0e6de1bd,
         type: 3}
