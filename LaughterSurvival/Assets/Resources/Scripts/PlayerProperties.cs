@@ -33,7 +33,7 @@ public class PlayerProperties : MonoBehaviour
     void PlayerDeath()
     {
         onDeath.Invoke();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
 
 
