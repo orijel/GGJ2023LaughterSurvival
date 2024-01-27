@@ -11,16 +11,16 @@ public class Documents : MonoBehaviour
     {
         // Face the camera
         transform.LookAt(Camera.main.transform);
-        transform.Translate(transform.forward*2);
+        transform.Translate(transform.forward*-3);
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-
+        transform.LookAt(Camera.main.transform);
         Debug.Log(timer);
-        if(timer >= 1.5)
+        if(timer >= 40f/30f)
         {
             Destroy(this.gameObject);
         }
