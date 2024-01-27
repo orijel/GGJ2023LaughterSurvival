@@ -1385,18 +1385,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 326955444}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &326955447 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5648736231340371734, guid: be6e4d755bbdc1c4f9d7ea4ad93cee96,
-    type: 3}
-  m_PrefabInstance: {fileID: 326955444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5999406dbae5d4b92b2e59d00a20a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &343271978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3143,7 +3131,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawners.Array.data[0]
       value: 
-      objectReference: {fileID: 326955447}
+      objectReference: {fileID: 1574535945}
     - target: {fileID: 7065496699304807767, guid: 960c73dc67c89cb4ab804e78fd1c63ed,
         type: 3}
       propertyPath: m_Name
@@ -8430,6 +8418,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 12.89532, z: 0.5000003}
   m_Center: {x: 5, y: 6.4476604, z: 0.24999824}
+--- !u!114 &1574535945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5382627804401183126, guid: be6e4d755bbdc1c4f9d7ea4ad93cee96,
+    type: 3}
+  m_PrefabInstance: {fileID: 326955444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbc9151e1d314842a0b38905e45ae48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1593279317
 PrefabInstance:
   m_ObjectHideFlags: 0
