@@ -32,12 +32,12 @@ public class PlayerActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
         }
 
-        if(Input.GetKeyUp(KeyCode.V))
+        if(Input.GetKeyUp(KeyCode.Mouse0))
         {
             StopAttack();
         }        
