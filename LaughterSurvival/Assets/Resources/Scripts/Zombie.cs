@@ -8,6 +8,7 @@ public class Zombie : EnemyBase
     [SerializeField] private int startHealth = 100;
     [SerializeField] public int Damaage = 100;
     [SerializeField] private GameObject documents;
+    [SerializeField] private GameObject zombie;
 
     public override void OnDamageTaken(WeaponBase weapon)
     {
@@ -43,5 +44,6 @@ public class Zombie : EnemyBase
         base.ResetEnemy();
         _animator.applyRootMotion = false;
         SetHealth(startHealth);
+        zombie.transform.localPosition = Vector3.zero;
     }
 }
