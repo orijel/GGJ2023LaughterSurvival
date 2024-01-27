@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public abstract class Spawner : MonoBehaviour
 {
     [SerializeField] List<Transform> transforms;
     [SerializeField] public ObjectPool objectPool;
@@ -38,13 +38,16 @@ public class Spawner : MonoBehaviour
         foreach (var obj in objectPool.pool) { 
             if(obj.activeInHierarchy == false)
             {
-                obj.SetActive(true);
-                obj.transform.position = transforms[spawnIndex].position;
+                ResetOnSpawn(obj, transforms[spawnIndex]);
                 return;
             }
         }
-        //Instantiate(objectPool.pool[0], transforms[spawnIndex]);
     }
 
+    protected virtual void ResetOnSpawn(GameObject obj, Transform transformToInit)
+    {
+        obj.SetActive(true);
+        obj.transform.position = transformToInit.position;
+    }
 
 }

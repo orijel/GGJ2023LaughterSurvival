@@ -31,8 +31,8 @@ public class EnemyBase : MonoBehaviour
     public bool CanAttack { get; private set; }
 
     private Coroutine _disabledAttack;
-
 	private bool _isDead = false;
+
     private void Awake()
     {
         InitializeNavMeshAgent();
@@ -68,6 +68,11 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
 	{
+        if (_isDead)
+        {
+			return;
+        }
+		_isDead = true;
         StopCoroutine(_disabledAttack);
 		CanAttack = false;
         _animator.Play(AnimatorDeathState);
@@ -90,6 +95,11 @@ public class EnemyBase : MonoBehaviour
 	{
 		// TODO: implement this
 		//Debug.Log($"Taking damage from: {weapon.name}");
+	}
+
+	public virtual void ResetEnemy()
+	{
+		_isDead = false;
 	}
 
 	protected Vector3 GetTarget(string tag)
@@ -137,6 +147,5 @@ public class EnemyBase : MonoBehaviour
     private void EnableAttack()
     {
         CanAttack = true;
-
     }
 }
