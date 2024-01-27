@@ -8,9 +8,9 @@ public class BaseGun : WeaponBase
 {
 	[SerializeField] private ObjectPool _myProjectilePool;
 	// [SerializeField] private float _projectileSpeed = 5f;
-	[SerializeField] private ForceMode _forceMode;
-	private LayerMask groundMask;
-	[SerializeField] private float groundOffset = 1;
+	// [SerializeField] private ForceMode _forceMode;
+	// private LayerMask groundMask;
+	// [SerializeField] private float groundOffset = 1;
 
 	public void ShootProjectile()
 	{

@@ -659,7 +659,7 @@ MonoBehaviour:
         m_CallState: 2
   _isContinous: 1
   _attackResetDelay: 1.5
-  Damage: 0
+  Damage: 20
   _Collider: {fileID: 4624891196385199799}
   _mainGameObject: {fileID: 8055321002997698711}
   _attackTick: 0.3
@@ -721,11 +721,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7700827320910609708}
     m_Modifications:
-    - target: {fileID: 1311489280500185304, guid: 0c092fc63ebaacc4c82691f70c7792cf,
-        type: 3}
-      propertyPath: _mainGameObject
-      value: 
-      objectReference: {fileID: 6142789662845410782}
     - target: {fileID: 1311489280500185305, guid: 0c092fc63ebaacc4c82691f70c7792cf,
         type: 3}
       propertyPath: m_Name
@@ -788,19 +783,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c092fc63ebaacc4c82691f70c7792cf, type: 3}
---- !u!1 &6142789662845410782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1311489280500185305, guid: 0c092fc63ebaacc4c82691f70c7792cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 5119689159579378951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6142789662845410783 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1311489280500185304, guid: 0c092fc63ebaacc4c82691f70c7792cf,
     type: 3}
   m_PrefabInstance: {fileID: 5119689159579378951}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6142789662845410782}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4e345cece8e9b143879e90fac0682b8, type: 3}
