@@ -15,20 +15,24 @@ public class ProjectileBase : MonoBehaviour
 	private void OnEnable()
 	{
 		timeStamp = Time.time;
+		// transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		//TODO: get enemy base and deal damage
-		Debug.Log("(Trigger)EMOTIONAL DAMAGE!! :" + other.gameObject.name);
-		if (other.gameObject.CompareTag("Player")) return;
-		EnemyBase enemy = other.gameObject.GetComponent<EnemyBase>();
-		if (enemy != null)
+		// if (other.gameObject.CompareTag("Player")) return;
+		if (other.gameObject.CompareTag("Enemy"))
 		{
-			enemy.OnDamageTaken(myWeapon);
-		}
+			Debug.Log("(Trigger)EMOTIONAL DAMAGE!! :" + other.gameObject.name);
+			EnemyBase enemy = other.gameObject.GetComponent<EnemyBase>();
+			if (enemy != null)
+			{
+				enemy.OnDamageTaken(myWeapon);
+			}
 
-		ResetProjectile();
+			ResetProjectile();
+		} 
 	}
 	//
 	// private void OnCollisionEnter(Collision other)

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9405ced8f601fed4ba2696a095b93616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myWeapon: {fileID: 0}
   myPool: {fileID: 0}
 --- !u!114 &5693769487229999185
 MonoBehaviour:
@@ -181,8 +182,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!54 &8245555462969587714
 Rigidbody:
   m_ObjectHideFlags: 0
