@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerProperties : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerProperties : MonoBehaviour
     void PlayerDeath()
     {
         onDeath.Invoke();
+        SceneManager.LoadScene(0);
     }
 
 
