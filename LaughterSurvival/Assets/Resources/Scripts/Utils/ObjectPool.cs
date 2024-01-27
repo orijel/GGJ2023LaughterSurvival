@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
 	[SerializeField] GameObject poolObject;
-	[SerializeField] int poolSize;
+	[SerializeField] public int poolSize;
 
 	public GameObject[] pool;
 
