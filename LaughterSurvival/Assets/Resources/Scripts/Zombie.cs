@@ -26,9 +26,4 @@ public class Zombie : EnemyBase
                 break;
         }
     }
-
-    protected override void Die()
-    {
-        gameObject.SetActive(false);
-    }
 }

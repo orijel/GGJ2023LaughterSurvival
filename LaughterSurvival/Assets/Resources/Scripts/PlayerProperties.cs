@@ -38,21 +38,28 @@ public class PlayerProperties : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         EnemyBase enemy = other.GetComponentInParent<EnemyBase>();
-        if (enemy != null)
+        if (enemy == null)
         {
-            enemy.onAttack();
-            if (playerDamageable)
-            {
-                enemy.onAttackSuccess();
+            return;
+        }
 
-                // IF THE ATTACK IS A ZOMBIE:
-                if (enemy.tag == "Enemy")
-                {
-                    StartCoroutine(DisableMovementForSeconds(1f));
-                    StartCoroutine(PlayerInvincibleForSeconds(2f));
-                    playerHealth -= enemy.Damage;
-                    _onHealthUpdated.Invoke();
-                }
+        if (!enemy.CanAttack)
+        {
+            return;
+        }
+        enemy.onAttack();
+
+        if (playerDamageable)
+        {
+            enemy.onAttackSuccess();
+
+            // IF THE ATTACK IS A ZOMBIE:
+            if (enemy.tag == "Enemy")
+            {
+                StartCoroutine(DisableMovementForSeconds(1f));
+                StartCoroutine(PlayerInvincibleForSeconds(2f));
+                playerHealth -= enemy.Damage;
+                _onHealthUpdated.Invoke();
             }
         }
     }
