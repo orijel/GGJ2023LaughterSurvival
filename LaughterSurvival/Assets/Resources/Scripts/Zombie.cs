@@ -12,12 +12,11 @@ public class Zombie : EnemyBase
     {
         navMeshAgent = InitializeNavMeshAgent();
     }
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         EnemyHealth = startHealth;
     }
+    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
@@ -41,6 +40,5 @@ public class Zombie : EnemyBase
     protected override void Die()
     {
         gameObject.SetActive(false);
-        EnemyHealth = startHealth;
     }
 }
