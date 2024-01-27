@@ -7,6 +7,7 @@ public class Zombie : EnemyBase
 {
     [SerializeField] private int startHealth = 100;
     [SerializeField] public int Damaage = 100;
+    [SerializeField] private GameObject documents;
 
     private void OnEnable()
     {
@@ -31,5 +32,15 @@ public class Zombie : EnemyBase
     {
         gameObject.SetActive(false);
         base.Die();
+    }
+
+
+    public override void OnAttackSuccess()
+    {
+        //Play animation
+        GameObject documentInstance = Instantiate(documents, transform.GetChild(0).transform);
+        //documentInstance.transform.LookAt(Vector3.up);
+        //documentInstance.transform.position += documentInstance.transform.forward;
+
     }
 }

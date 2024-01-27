@@ -358,6 +358,8 @@ MonoBehaviour:
   _animator: {fileID: 9138674945057968299}
   startHealth: 100
   Damaage: 100
+  documents: {fileID: 7007724201377566932, guid: 38d7c3f874b94a348a755e5456fef3ea,
+    type: 3}
 --- !u!136 &466032177658551163
 CapsuleCollider:
   m_ObjectHideFlags: 0
