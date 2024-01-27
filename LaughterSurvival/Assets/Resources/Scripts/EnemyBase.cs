@@ -4,14 +4,23 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] public float EnemyHealth = 100;
-	[SerializeField] public float Damage = 10;
+	[SerializeField] private float _maximumHealth = 100;
+    [SerializeField] private float _enemyHealth = 100;
+	[SerializeField] private float _damage = 10;
+	[SerializeField] private UnityEvent _onDamageTaken;
+	[SerializeField] private UnityEvent _onDeath;
+
+    public float MaximumHealth { get => _maximumHealth; }
+    public float EnemyHealth { get => _enemyHealth; }
+    public float Damage { get => _damage; }
+
     public virtual void OnDamageTaken(WeaponBase weapon)
 	{
-		Debug.Log($"Taking damage from: {weapon.name}, Health {EnemyHealth}");
+		_onDamageTaken.Invoke();
 		if (EnemyHealth <= 0)
 		{
 			Die();
@@ -20,7 +29,7 @@ public class EnemyBase : MonoBehaviour
 
 	protected virtual void Die()
 	{
-		throw new NotImplementedException();
+		_onDeath.Invoke();
 	}
 
 	public void onAttack()
@@ -62,5 +71,10 @@ public class EnemyBase : MonoBehaviour
 		NavMesh.SamplePosition(transform.position, out hit, 100, NavMesh.AllAreas);
 		navMeshAgent.Warp(hit.position);
 		return navMeshAgent;
+	}
+
+	protected void SetHealth(float health)
+	{
+		_enemyHealth = health;
 	}
 }

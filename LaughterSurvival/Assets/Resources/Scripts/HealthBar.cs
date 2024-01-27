@@ -6,19 +6,24 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private EnemyBase _enemyBase;
-    [SerializeField] private SpriteMask _spriteMask;
+    [SerializeField] private GameObject _healthBarMask;
     [SerializeField] private float _animDuration = 0.3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        _spriteMask.gameObject.transform.localScale = Vector3.one;
+        _healthBarMask.transform.localScale = Vector3.one;
     }
 
-    public void SetHealth(float currentHealth, float maximumHealth)
+    public void TakeDamage()
+    {
+        SetHealth(_enemyBase.EnemyHealth, _enemyBase.MaximumHealth);
+    }
+
+    private void SetHealth(float currentHealth, float maximumHealth)
     {
         var ratio = currentHealth / maximumHealth;
         var clampedRatio = ratio > 0 ? ratio : 0;
-        _spriteMask.transform.DOScaleX(clampedRatio, _animDuration);
+        _healthBarMask.transform.DOScaleX(clampedRatio, _animDuration);
     }
 }

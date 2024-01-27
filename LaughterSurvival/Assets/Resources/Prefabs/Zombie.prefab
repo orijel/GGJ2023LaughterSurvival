@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBase: {fileID: 4568403869816812540}
-  _spriteMask: {fileID: 973437308873649997}
+  _healthBarMask: {fileID: 1088756061336712010}
   _animDuration: 0.3
 --- !u!1 &4078688586720612752
 GameObject:
@@ -1683,8 +1683,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d35eda15532da42a710b070346a708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 100
+  _maximumHealth: 100
+  _enemyHealth: 100
+  _damage: 10
+  _onDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7627199478423779419}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: TakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   startHealth: 100
+  Damaage: 100
 --- !u!136 &466032177658551163
 CapsuleCollider:
   m_ObjectHideFlags: 0

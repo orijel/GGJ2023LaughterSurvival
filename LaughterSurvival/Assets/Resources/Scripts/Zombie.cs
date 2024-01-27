@@ -15,11 +15,9 @@ public class Zombie : EnemyBase
     }
     private void OnEnable()
     {
-        EnemyHealth = startHealth;
+        SetHealth(startHealth);
     }
-    // Start is called before the first frame update
 
-    // Update is called once per frame
     void Update()
     {
         navMeshAgent.destination = GetTarget("Player");
@@ -27,15 +25,16 @@ public class Zombie : EnemyBase
 
     public override void OnDamageTaken(WeaponBase weapon)
     {
-        if (weapon is FartGun fartGun) {
-            EnemyHealth -= fartGun.Damage;
-        }
-
-        if (weapon is BaseGun baseGun)
+        switch (weapon)
         {
-            EnemyHealth -= baseGun.Damage;
+            case FartGun:
+            case BaseGun:
+                SetHealth(EnemyHealth - weapon.Damage);
+                base.OnDamageTaken(weapon);
+                break;
+            default:
+                break;
         }
-        base.OnDamageTaken(weapon);
     }
 
     protected override void Die()
