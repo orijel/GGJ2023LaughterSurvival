@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour
 	[SerializeField] private float _damage = 10;
 	[SerializeField] private UnityEvent _onDeath;
 	[SerializeField] private UnityEvent _onHealthUpdated;
-	[SerializeField] private Animator _animator;
+	[SerializeField] protected Animator _animator;
 	[SerializeField] private float attackDisableTime = 1f;
 	[SerializeField] private float despawnDelay = 2.4f;
 
@@ -67,8 +67,9 @@ public class EnemyBase : MonoBehaviour
 
 	protected virtual void Die()
 	{
+        StopCoroutine(_disabledAttack);
 		CanAttack = false;
-		_animator.Play(AnimatorDeathState);
+        _animator.Play(AnimatorDeathState);
 		_onDeath.Invoke();
 		this.ActivateWithDelay(DespawnObject, despawnDelay);
 	}
