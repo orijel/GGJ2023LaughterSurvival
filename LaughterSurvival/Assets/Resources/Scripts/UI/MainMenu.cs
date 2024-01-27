@@ -17,16 +17,15 @@ public class MainMenu : MonoBehaviour
 	{
 		return gameNames[Random.Range(0, gameNames.Count - 1)];
 	}
-
-	private void Update()
-	{
-		title.gameObject.transform.DOScale(1.1f, 0.5f).SetEase(Ease.InOutBounce).SetLoops(-1, LoopType.Yoyo);
-	}
+	
 
 	private void Start()
 	{
 		title.text = GetRandomName();
+		InvokeRepeating("SwitchTitle", 3, 3);
+		title.gameObject.transform.DOScale(1.1f, 0.5f).SetEase(Ease.InOutBounce).SetLoops(-1, LoopType.Yoyo);
 	}
+	
 
 	public void LoadLevel(int idx)
 	{
@@ -36,5 +35,15 @@ public class MainMenu : MonoBehaviour
 	public void Quit()
 	{
 		Application.Quit();
+	}
+
+	// private IEnumerator SwitchTitle()
+	// {
+	// 	yield return title.text = GetRandomName();
+	// }
+
+	private void SwitchTitle()
+	{
+		title.text = GetRandomName();
 	}
 }
