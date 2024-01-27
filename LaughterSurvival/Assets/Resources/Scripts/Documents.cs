@@ -19,7 +19,6 @@ public class Documents : MonoBehaviour
     {
         timer += Time.deltaTime;
         transform.LookAt(Camera.main.transform);
-        Debug.Log(timer);
         if(timer >= 40f/30f)
         {
             Destroy(this.gameObject);

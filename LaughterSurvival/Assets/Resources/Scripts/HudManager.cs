@@ -11,11 +11,13 @@ public class HudManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI killCount;
     private int _killCount = 0;
     [SerializeField] List<Spawner> spawners;
-
+    private int _maxEnemies;
     // Start is called before the first frame update
     void Start()
     {
-        _enemiesLeft = spawners.Select(x => x.objectPool.poolSize).Sum();
+        
+        _maxEnemies = spawners.Select(x => x.objectPool.poolSize).Sum();
+        _enemiesLeft = _maxEnemies;
         enemiesLeftText.text = "Enemies Left: " + _enemiesLeft.ToString();
         killCount.text = "Kill Count: " + _killCount.ToString();
     }
@@ -23,13 +25,12 @@ public class HudManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //totalEnemiesText.text 
     }
 
     public void AddKillCount() //call onDie of enemies
     {
-        _enemiesLeft--;
-        _killCount++;
+        if(_enemiesLeft > 0) _enemiesLeft--;
+        if(_killCount< _maxEnemies) _killCount++;
         enemiesLeftText.text = "Enemies Left: " + _enemiesLeft.ToString();
         killCount.text = "Kill Count: " + _killCount.ToString();
     }

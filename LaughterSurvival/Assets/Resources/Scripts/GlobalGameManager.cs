@@ -9,6 +9,9 @@ public class GlobalGameManager : MonoBehaviour
 
     public static GlobalGameManager Instance { get; private set; }
     public PlayerRefrences Player { get; private set; }
+    public Camera MainCamera { get; private set; }
+    public HudManager HudManager { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,7 +21,8 @@ public class GlobalGameManager : MonoBehaviour
         }
         Instance = this;
         Player = FindObjectOfType<PlayerRefrences>();
-
+        MainCamera = FindObjectOfType<Camera>();
+        HudManager = FindAnyObjectByType<HudManager>();
     }
 
     private void Start()
