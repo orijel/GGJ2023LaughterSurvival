@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myWeapon: {fileID: 0}
+  speed: 2
   myPool: {fileID: 0}
 --- !u!114 &5693769487229999185
 MonoBehaviour:
@@ -165,12 +166,23 @@ MonoBehaviour:
   banterOffsetY: 10
   banterDuration: 3
   insults:
-  - Your mother was a hamster and yoru father smelled of elderberries!
-  - I fart in your general directions!
-  - Now go away or I shall taunt you a second time...
-  - Go and boil your bottoms, you sons of silly persons.
-  - I wave my private parts at your auntie
-  - Go away you silly English K-nigg-its!
+  - I'm reading a book about anti-gravity. It's impossible to put down!
+  - I used to work as a baker, but I couldn't make enough dough!
+  - 'Why did the scarecrow win an award? Because he was outstanding in his field! '
+  - I'm friends with 25 letters of the alphabet. I don't know why!
+  - I went to a seafood disco last night. I pulled a mussel!
+  - Why did the bicycle fall over? Because it was two-tired!
+  - 'I''ve told you a million times, don''t exaggerate! '
+  - 'Why don''t scientists trust atoms? Because they make up everything! '
+  - 'I couldn''t figure out why the baseball was getting bigger. Then it hit me! '
+  - 'I''ve told you a million times, don''t exaggerate! '
+  - Why did the math book look sad? Because it had too many problems!
+  - this game...
+  - 'How do you organize a space party? You "planet"! '
+  - I've been trying to organize a hide and seek tournament, but good players are
+    really hard to find!
+  - Why don't skeletons fight each other? They don't have the guts!
+  - 'The rotation of Earth really makes my day! '
 --- !u!135 &5693769487229999187
 SphereCollider:
   m_ObjectHideFlags: 0
