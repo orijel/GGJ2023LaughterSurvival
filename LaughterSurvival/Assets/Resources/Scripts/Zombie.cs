@@ -11,6 +11,7 @@ public class Zombie : EnemyBase
 
     private void OnEnable()
     {
+        _animator.applyRootMotion = false;
         SetHealth(startHealth);
     }
 
@@ -28,13 +29,6 @@ public class Zombie : EnemyBase
         }
     }
 
-    protected override void Die()
-    {
-        gameObject.SetActive(false);
-        base.Die();
-    }
-
-
     public override void OnAttackSuccess()
     {
         //Play animation
@@ -42,5 +36,10 @@ public class Zombie : EnemyBase
         //documentInstance.transform.LookAt(Vector3.up);
         //documentInstance.transform.position += documentInstance.transform.forward;
 
+    }
+
+    public void UpdateAnimatorOnDeath()
+    {
+        _animator.applyRootMotion = true;
     }
 }

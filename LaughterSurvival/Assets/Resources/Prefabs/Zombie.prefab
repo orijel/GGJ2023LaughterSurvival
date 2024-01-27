@@ -339,7 +339,43 @@ MonoBehaviour:
   _damage: 10
   _onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4568403867809967665}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7306224902330445589}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4568403869816812540}
+        m_TargetAssemblyTypeName: Zombie, Assembly-CSharp
+        m_MethodName: UpdateAnimatorOnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onHealthUpdated:
     m_PersistentCalls:
       m_Calls:
@@ -356,10 +392,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _animator: {fileID: 9138674945057968299}
+  attackDisableTime: 1.2
+  despawnDelay: 2.4
   startHealth: 100
   Damaage: 100
   documents: {fileID: 7007724201377566932, guid: 38d7c3f874b94a348a755e5456fef3ea,
     type: 3}
+  _animator: {fileID: 9138674945057968299}
 --- !u!136 &466032177658551163
 CapsuleCollider:
   m_ObjectHideFlags: 0
