@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Zombie : EnemyBase
 {
+    [SerializeField] private int startHealth = 100;
     private NavMeshAgent navMeshAgent;
 
     private void Awake()
@@ -15,23 +16,13 @@ public class Zombie : EnemyBase
     // Start is called before the first frame update
     void Start()
     {
-
+        EnemyHealth = startHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         navMeshAgent.destination = GetTarget("Player");
-    }
-
-    void OnAttack()
-    {
-
-    }
-
-    void OnAttackSuccess()
-    {
-
     }
 
     public override void OnDamageTaken(WeaponBase weapon)
@@ -50,5 +41,6 @@ public class Zombie : EnemyBase
     protected override void Die()
     {
         gameObject.SetActive(false);
+        EnemyHealth = startHealth;
     }
 }
