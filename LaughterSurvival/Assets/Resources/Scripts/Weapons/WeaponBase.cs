@@ -21,7 +21,7 @@ public abstract class WeaponBase : MonoBehaviour
 	[SerializeField] private GameObject _mainGameObject;
 
 	private bool _isAttacking = false;
-
+	private bool _isEquiped = false;
 	public string WeaponId
 	{
 		get => _weaponId;
@@ -38,6 +38,8 @@ public abstract class WeaponBase : MonoBehaviour
 	{
 		get => _isAttacking;
 	}
+
+	public bool IsEquiped { get => _isEquiped; set => _isEquiped = value; }
 
 	private void Start()
 	{

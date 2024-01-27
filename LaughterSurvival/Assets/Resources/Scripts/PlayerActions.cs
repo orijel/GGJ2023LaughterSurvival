@@ -45,5 +45,13 @@ public class PlayerActions : MonoBehaviour
         {
             PlayerInteractor.Interact();
         }
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+
+        // Check if there was any mouse scroll input
+        if (Mathf.Abs(scrollInput) > 0)
+        {
+            // There was a mouse scroll, perform your action here
+            weaponsManager.ActivateNextWeapon();
+        }
     }
 }
