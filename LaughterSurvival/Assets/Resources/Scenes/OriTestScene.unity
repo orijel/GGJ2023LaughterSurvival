@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 16b3e3455af45d94c96de66091af70cc, type: 2}
 --- !u!1001 &51410432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,6 +418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568403869816812485, guid: 13bea43f19c8b3240908db068ab1ead5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4568403869816812487, guid: 13bea43f19c8b3240908db068ab1ead5,
         type: 3}
@@ -1213,7 +1218,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1861070618
 MeshCollider:
