@@ -19,6 +19,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float _damage = 10;
     [SerializeField] private UnityEvent _onDeath;
     [SerializeField] private UnityEvent _onHealthUpdated;
+    [SerializeField] private UnityEvent _onReset;
     [SerializeField] protected Animator _animator;
     [SerializeField] private float attackDisableTime = 1f;
     [SerializeField] private float despawnDelay = 2.4f;
@@ -80,6 +81,7 @@ public class EnemyBase : MonoBehaviour
         CanAttack = false;
         _animator.Play(AnimatorDeathState);
         _onDeath.Invoke();
+        GlobalGameManager.Instance.HudManager.AddKillCount();
         this.ActivateWithDelay(DespawnObject, despawnDelay);
     }
 
@@ -102,6 +104,8 @@ public class EnemyBase : MonoBehaviour
 	public virtual void ResetEnemy()
 	{
 		_isDead = false;
+        EnableAttack();
+        _onReset.Invoke();
 	}
 
 	protected Vector3 GetTarget(string tag)
