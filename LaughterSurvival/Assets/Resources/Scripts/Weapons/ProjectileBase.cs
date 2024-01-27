@@ -15,8 +15,8 @@ public class ProjectileBase : MonoBehaviour
 	private void OnEnable()
 	{
 		timeStamp = Time.time;
-		// transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 	}
+
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -32,7 +32,7 @@ public class ProjectileBase : MonoBehaviour
 			}
 
 			ResetProjectile();
-		} 
+		}
 	}
 	//
 	// private void OnCollisionEnter(Collision other)
@@ -51,7 +51,7 @@ public class ProjectileBase : MonoBehaviour
 
 	private void Update()
 	{
-		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
 	}
 
 
