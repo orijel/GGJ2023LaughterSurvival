@@ -18,16 +18,26 @@ public class BaseGun : WeaponBase
 		{
 			if (_myProjectilePool.pool[i].activeInHierarchy == false)
 			{
-				ProjectileBase mybase = _myProjectilePool.pool[i].GetComponent<ProjectileBase>();
-				mybase.myPool = _myProjectilePool;
-				mybase.myWeapon = this;
-				_myProjectilePool.pool[i].transform.position = transform.position;
-				_myProjectilePool.pool[i].transform.rotation = transform.rotation;
-				_myProjectilePool.pool[i].transform.parent = null;
+				HandlePoolSettings(i);
+				SetTransformOrigins(i);
 				_myProjectilePool.pool[i].SetActive(true);
 
 				return;
 			}
 		}
+	}
+
+	private void SetTransformOrigins(int i)
+	{
+		_myProjectilePool.pool[i].transform.position = transform.position;
+		_myProjectilePool.pool[i].transform.rotation = transform.rotation;
+		_myProjectilePool.pool[i].transform.parent = null;
+	}
+
+	private void HandlePoolSettings(int i)
+	{
+		ProjectileBase mybase = _myProjectilePool.pool[i].GetComponent<ProjectileBase>();
+		mybase.myPool = _myProjectilePool;
+		mybase.myWeapon = this;
 	}
 }
