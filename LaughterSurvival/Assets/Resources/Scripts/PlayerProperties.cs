@@ -6,10 +6,14 @@ using UnityEngine.Events;
 public class PlayerProperties : MonoBehaviour
 {
     [Range(0f, 100f)]
-    public float playerHealth = 100f;
+    [SerializeField] public float playerHealth = 100f;
+    [SerializeField] public float maximumHealth = 100;
+
     public bool playerDamageable = true;
     private bool movementEnabled;
     [SerializeField] private UnityEvent onDeath;
+    [SerializeField] private UnityEvent _onHealthUpdated;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,7 @@ public class PlayerProperties : MonoBehaviour
                     StartCoroutine(DisableMovementForSeconds(1f));
                     StartCoroutine(PlayerInvincibleForSeconds(2f));
                     playerHealth -= enemy.Damage;
+                    _onHealthUpdated.Invoke();
                 }
             }
         }
