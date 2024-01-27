@@ -9,11 +9,15 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBase : MonoBehaviour
 {
-	[SerializeField] private float _maximumHealth = 100;
+	private static int AnimatorIsMoving = Animator.StringToHash("IsMoving");
+    private static int AnimatorAttackTrigger = Animator.StringToHash("AttackTrigger");
+
+    [SerializeField] private float _maximumHealth = 100;
     [SerializeField] private float _enemyHealth = 100;
 	[SerializeField] private float _damage = 10;
 	[SerializeField] private UnityEvent _onDeath;
 	[SerializeField] private UnityEvent _onHealthUpdated;
+	[SerializeField] private Animator _animator;
 
     protected NavMeshAgent navMeshAgent;
 
@@ -29,6 +33,18 @@ public class EnemyBase : MonoBehaviour
     void Update()
     {
         navMeshAgent.destination = GetTarget("Player");
+        UpdateAnimator();
+    }
+
+    private void UpdateAnimator()
+    {
+        if (navMeshAgent.velocity.magnitude > 0.01f)
+        {
+			_animator.SetBool(AnimatorIsMoving, true);
+			return;
+        }
+
+        _animator.SetBool(AnimatorIsMoving, false);
     }
 
     public virtual void OnDamageTaken(WeaponBase weapon)
@@ -46,6 +62,7 @@ public class EnemyBase : MonoBehaviour
 
 	public void onAttack()
 	{
+		_animator.SetTrigger(AnimatorAttackTrigger);
 	}
 
 	public void onAttackSuccess()
