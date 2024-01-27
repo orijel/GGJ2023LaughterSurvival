@@ -9,31 +9,57 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBase : MonoBehaviour
 {
-	[SerializeField] private float _maximumHealth = 100;
+	private static int AnimatorIsMoving = Animator.StringToHash("IsMoving");
+    private static int AnimatorAttackTrigger = Animator.StringToHash("AttackTrigger");
+    private static int AnimatorDamagedState = Animator.StringToHash("Damaged");
+    private static int AnimatorDeathState = Animator.StringToHash("Death");
+
+    [SerializeField] private float _maximumHealth = 100;
     [SerializeField] private float _enemyHealth = 100;
 	[SerializeField] private float _damage = 10;
 	[SerializeField] private UnityEvent _onDeath;
 	[SerializeField] private UnityEvent _onHealthUpdated;
+	[SerializeField] private Animator _animator;
+	[SerializeField] private float attackDisableTime = 1f;
+	[SerializeField] private float despawnDelay = 2.4f;
 
     protected NavMeshAgent navMeshAgent;
 
     public float MaximumHealth { get => _maximumHealth; }
     public float EnemyHealth { get => _enemyHealth; }
     public float Damage { get => _damage; }
+    public bool CanAttack { get; private set; }
+
+    private Coroutine _disabledAttack;
 
     private void Awake()
     {
         InitializeNavMeshAgent();
+		EnableAttack();
     }
 
     void Update()
     {
-        navMeshAgent.destination = GetTarget("Player");
+		navMeshAgent.destination = CanAttack ? GetTarget("Player") : transform.position;
+        UpdateAnimator();
+    }
+
+    private void UpdateAnimator()
+    {
+        if (navMeshAgent.velocity.magnitude > 0.01f)
+        {
+			_animator.SetBool(AnimatorIsMoving, true);
+			return;
+        }
+
+        _animator.SetBool(AnimatorIsMoving, false);
     }
 
     public virtual void OnDamageTaken(WeaponBase weapon)
 	{
-		if (EnemyHealth <= 0)
+        _animator.Play(AnimatorDamagedState);
+        DisableAttack();
+        if (EnemyHealth <= 0)
 		{
 			Die();
 		}
@@ -41,14 +67,23 @@ public class EnemyBase : MonoBehaviour
 
 	protected virtual void Die()
 	{
+		CanAttack = false;
+		_animator.Play(AnimatorDeathState);
 		_onDeath.Invoke();
+		this.ActivateWithDelay(DespawnObject, despawnDelay);
 	}
 
-	public void onAttack()
+    private void DespawnObject()
+    {
+		gameObject.SetActive(false);
+    }
+
+    public void onAttack()
 	{
+		_animator.SetTrigger(AnimatorAttackTrigger);
 	}
 
-	public void onAttackSuccess()
+	public virtual void OnAttackSuccess()
 	{
 		// TODO: implement this
 		//Debug.Log($"Taking damage from: {weapon.name}");
@@ -82,8 +117,23 @@ public class EnemyBase : MonoBehaviour
 
 	protected void SetHealth(float health)
 	{
-		_enemyHealth = health;
+        _enemyHealth = health;
 		_onHealthUpdated.Invoke();
+    }
+
+	private void DisableAttack()
+	{
+        if (_disabledAttack != null)
+        {
+            StopCoroutine( _disabledAttack );
+        }
+        CanAttack = false;
+		_disabledAttack = this.ActivateWithDelay(EnableAttack, attackDisableTime);
+	}
+
+    private void EnableAttack()
+    {
+        CanAttack = true;
 
     }
 }
