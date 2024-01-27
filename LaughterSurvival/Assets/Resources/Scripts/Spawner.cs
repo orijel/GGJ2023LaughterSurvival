@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] List<Transform> transforms;
-    [SerializeField] ObjectPool objectPool;
+    [SerializeField] public ObjectPool objectPool;
     [SerializeField] private float interval = 3;
 
     private System.Random _random = new System.Random();

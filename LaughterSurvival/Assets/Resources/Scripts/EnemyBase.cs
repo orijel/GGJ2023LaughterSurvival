@@ -83,7 +83,7 @@ public class EnemyBase : MonoBehaviour
 		_animator.SetTrigger(AnimatorAttackTrigger);
 	}
 
-	public void onAttackSuccess()
+	public virtual void OnAttackSuccess()
 	{
 		// TODO: implement this
 		//Debug.Log($"Taking damage from: {weapon.name}");
