@@ -30,5 +30,6 @@ public class Zombie : EnemyBase
     protected override void Die()
     {
         gameObject.SetActive(false);
+        base.Die();
     }
 }
