@@ -8,7 +8,7 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
 	[SerializeField] public WeaponBase myWeapon;
-	[SerializeField] private float speed = 3f;
+	[SerializeField] private float speed = 2f;
 	public ObjectPool myPool;
 	private float timeStamp;
 
@@ -34,20 +34,6 @@ public class ProjectileBase : MonoBehaviour
 			ResetProjectile();
 		}
 	}
-	//
-	// private void OnCollisionEnter(Collision other)
-	// {
-	// 	//TODO: get enemy base and deal damage
-	// 	if (other.gameObject.CompareTag("Player")) return;
-	// 	Debug.Log("EMOTIONAL DAMAGE!! :" + other.gameObject.name);
-	// 	Zombie enemy = other.gameObject.GetComponent<Zombie>();
-	// 	if (enemy != null)
-	// 	{
-	// 		enemy.OnDamageTaken(20);
-	// 	}
-	//
-	// 	ResetProjectile();
-	// }
 
 	private void Update()
 	{
