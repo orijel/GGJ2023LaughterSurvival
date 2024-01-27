@@ -507,6 +507,26 @@ PrefabInstance:
       propertyPath: triggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: FartGun, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4293715332557317272, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944133327508299342, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_WorldUpObject
+      value: 
+      objectReference: {fileID: 240741039}
+    - target: {fileID: 4944133327508299342, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_Sources.Array.data[0].sourceTransform
+      value: 
+      objectReference: {fileID: 240741039}
+    - target: {fileID: 7131422975144786142, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: _playerCamera
+      value: 
+      objectReference: {fileID: 240741038}
     - target: {fileID: 8055321001439526996, guid: d85930bc018faf64dac78a457f2f7203,
         type: 3}
       propertyPath: m_RootOrder
@@ -566,6 +586,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SammyJeinfeld
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9875028
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.15760197
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000000763157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00014856554
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002949161216, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055321002997698713, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059819797747332201, guid: d85930bc018faf64dac78a457f2f7203,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85930bc018faf64dac78a457f2f7203, type: 3}
