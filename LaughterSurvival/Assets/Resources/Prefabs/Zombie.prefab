@@ -355,6 +355,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _animator: {fileID: 9138674945057968299}
   startHealth: 100
   Damaage: 100
 --- !u!136 &466032177658551163
@@ -574,10 +575,10 @@ Animator:
   m_GameObject: {fileID: 6216037745289176472}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b198f895e6222ef468294e4a7a51329a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 54462ba448f49c048942d417a82fcee5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8ee9c387e3bdd0f43933464c9f797661, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
