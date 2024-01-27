@@ -9,7 +9,7 @@ public class WeaponInteractable : MonoBehaviour
     
     public void Equip()
     {
-        GlobalGameManager.Instance.Player.WeaponsManager.ActivateWeapon(weaponId);
+        GlobalGameManager.Instance.Player.WeaponsManager.EquipWeapon(weaponId);
         weapon.SetActive(false);
     }
 }
